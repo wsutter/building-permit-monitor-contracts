@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Spotless configuration for the contracts module.
+
+  The contracts module contains shared events, DTOs, topic constants, schemas
+  and examples. Besides Java and pom.xml formatting, this configuration also
+  normalises JSON schema/example files.
+-->
+<spotless>
+  <java>
+    <includes>
+      <include>src/main/java/**/*.java</include>
+      <include>src/test/java/**/*.java</include>
+    </includes>
+
+    <excludes>
+      <exclude>target/**/*.java</exclude>
+      <exclude>build/**/*.java</exclude>
+      <exclude>.idea/**/*.java</exclude>
+    </excludes>
+
+    <googleJavaFormat>
+      <version>1.27.0</version>
+      <style>GOOGLE</style>
+      <reflowLongStrings>true</reflowLongStrings>
+      <formatJavadoc>true</formatJavadoc>
+    </googleJavaFormat>
+
+    <removeUnusedImports/>
+    <importOrder/>
+    <formatAnnotations/>
+    <trimTrailingWhitespace/>
+    <endWithNewline/>
+  </java>
+
+  <pom>
+    <includes>
+      <include>pom.xml</include>
+    </includes>
+
+    <sortPom>
+      <expandEmptyElements>false</expandEmptyElements>
+    </sortPom>
+
+    <trimTrailingWhitespace/>
+    <endWithNewline/>
+  </pom>
+
+  <json>
+    <includes>
+      <include>src/main/resources/**/*.json</include>
+      <include>src/test/resources/**/*.json</include>
+      <include>examples/**/*.json</include>
+    </includes>
+
+    <excludes>
+      <exclude>target/**</exclude>
+    </excludes>
+
+    <jackson/>
+  </json>
+
+  <format>
+    <name>misc</name>
+
+    <includes>
+      <include>README.md</include>
+      <include>src/main/resources/**/*.yml</include>
+      <include>src/main/resources/**/*.yaml</include>
+      <include>src/test/resources/**/*.yml</include>
+      <include>src/test/resources/**/*.yaml</include>
+      <include>src/main/resources/**/*.properties</include>
+      <include>src/test/resources/**/*.properties</include>
+      <include>.gitignore</include>
+    </includes>
+
+    <excludes>
+      <exclude>target/**</exclude>
+      <exclude>.idea/**</exclude>
+    </excludes>
+
+    <trimTrailingWhitespace/>
+    <endWithNewline/>
+  </format>
+</spotless>
