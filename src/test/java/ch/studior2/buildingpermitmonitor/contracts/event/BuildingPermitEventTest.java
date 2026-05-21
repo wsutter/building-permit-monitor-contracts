@@ -4,9 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Named.named;
 import static org.junit.jupiter.params.provider.Arguments.arguments;
 
-import java.time.Instant;
 import java.time.LocalDate;
-import java.util.Map;
 import java.util.stream.Stream;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
@@ -23,11 +21,12 @@ class BuildingPermitEventTest {
 
     @ParameterizedTest(name = "{0}")
     @MethodSource("rawEvents")
-    @DisplayName("should keep source, external id and payload unchanged")
-    void shouldKeepRawEventValues(BuildingPermitRawEvent event, String expectedExternalId) {
-      assertEquals("kt-zh", event.source());
-      assertEquals(expectedExternalId, event.externalId());
-      assertEquals("Thalwil", event.payload().get("gemeinde"));
+    @DisplayName("should keep raw CSV event values")
+    void shouldKeepRawEventValues(BuildingPermitRawEvent event, String expectedBusinessKey) {
+      assertEquals("00002982", event.id());
+      assertEquals("00006183", event.publicationNumber());
+      assertEquals(expectedBusinessKey, event.externalId());
+      assertEquals("Thalwil", event.municipalityName());
     }
 
     static Stream<Arguments> rawEvents() {
@@ -36,11 +35,48 @@ class BuildingPermitEventTest {
               named(
                   "raw event from Kanton Zürich",
                   new BuildingPermitRawEvent(
-                      "kt-zh",
-                      "123456",
-                      Instant.parse("2026-05-17T18:30:00Z"),
-                      Map.of("gemeinde", "Thalwil"))),
-              "123456"));
+                      "00002982",
+                      "00006183",
+                      null,
+                      null,
+                      null,
+                      null,
+                      "Thalwil",
+                      null,
+                      null,
+                      null,
+                      null,
+                      null,
+                      null,
+                      null,
+                      null,
+                      null,
+                      null,
+                      null,
+                      null,
+                      null,
+                      null,
+                      null,
+                      null,
+                      null,
+                      null,
+                      null,
+                      null,
+                      null,
+                      null,
+                      null,
+                      "Umbau Wohnung",
+                      null,
+                      "Eisenbahnstrasse",
+                      "27",
+                      8800,
+                      "Thalwil",
+                      null,
+                      null,
+                      null,
+                      null,
+                      null)),
+              "00002982:00006183"));
     }
   }
 
