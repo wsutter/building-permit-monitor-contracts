@@ -8,4 +8,5 @@ module ch.studior2.buildingpermitmonitor.contracts {
   exports ch.studior2.buildingpermitmonitor.contracts.topic;
   exports ch.studior2.buildingpermitmonitor.contracts.config;
   exports ch.studior2.buildingpermitmonitor.contracts.group;
+  exports ch.studior2.buildingpermitmonitor.contracts.geocoding;
 }
