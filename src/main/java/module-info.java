@@ -2,6 +2,9 @@ module ch.studior2.buildingpermitmonitor.contracts {
   requires com.fasterxml.jackson.annotation;
   requires tools.jackson.databind;
   requires spring.context;
+  requires spring.kafka;
+  requires spring.core;
+  requires kafka.clients;
 
   exports ch.studior2.buildingpermitmonitor.contracts.event;
   exports ch.studior2.buildingpermitmonitor.contracts.model;

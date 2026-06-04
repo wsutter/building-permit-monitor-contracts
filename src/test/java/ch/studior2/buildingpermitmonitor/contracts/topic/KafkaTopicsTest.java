@@ -31,7 +31,13 @@ class KafkaTopicsTest {
           arguments(
               named("normalized topic", KafkaTopics.NORMALIZED), "building-permit.normalized"),
           arguments(named("enriched topic", KafkaTopics.ENRICHED), "building-permit.enriched"),
-          arguments(named("dead-letter topic", KafkaTopics.DLQ), "building-permit.dlq"));
+          arguments(named("dead-letter raw topic", KafkaTopics.RAW_DLQ), "building-permit.raw.dlq"),
+          arguments(
+              named("dead-letter normalized topic", KafkaTopics.NORMALIZED_DLQ),
+              "building-permit.normalized.dlq"),
+          arguments(
+              named("dead-letter enriched topic", KafkaTopics.ENRICHED_DLQ),
+              "building-permit.enriched.dlq"));
     }
   }
 }
