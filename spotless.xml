@@ -27,7 +27,9 @@
     </googleJavaFormat>
 
     <removeUnusedImports/>
-    <importOrder/>
+    <importOrder>
+      <order>java,javax,org,com,static</order>
+    </importOrder>
     <formatAnnotations/>
     <trimTrailingWhitespace/>
     <endWithNewline/>
